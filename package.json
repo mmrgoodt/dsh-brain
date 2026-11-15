@@ -1,0 +1,42 @@
+{
+  "name": "dsh-brain",
+  "version": "0.6.0",
+  "private": true,
+  "description": "给 DSH 装一份会想起来、会自己收着用的长期记忆（纯 Node，无外部依赖）",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmrgoodt/dsh-brain.git"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "memory"
+  ],
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./client": "./lib/client.js"
+  },
+  "files": [
+    "lib/",
+    "cordis.patch.yml",
+    "package.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "slots",
+        "layout"
+      ]
+    }
+  }
+}

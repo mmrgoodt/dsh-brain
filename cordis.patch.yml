@@ -1,0 +1,16 @@
+# dsh-brain
+#
+# 这一行是 bundle.patch：DSH 扫 node_modules 时读到这里，自动把插件挂上。
+# specifier 必须等于 package.json 的 name。
+- insert:
+    - id: dsh-brain
+      name: "dsh-brain"
+      inject: []
+      config:
+        # 记忆库放哪。默认 ~/.dsh/brain，也可以用环境变量 BRAIN_DIR 覆盖。
+        # 换成你自己的路径时注意用正斜杠，或双反斜杠。
+        dataDir: "~/.dsh/brain"
+        enabled: true
+        # 内置只读控制台（/visual 那套）默认关掉，免得在没有服务脚本的
+        # 安装方式下报错。想要就自己起 scripts/server.mjs 再打开。
+        console: false
